@@ -1,0 +1,5 @@
+{
+  "defaultSeverity": "error",
+  "extends": "@effinggames/ts-lint-configs",
+  "rules": {}
+}

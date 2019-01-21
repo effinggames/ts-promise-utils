@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "target": "es5",
+    "module": "commonjs",
+    "lib": ["es2018"],
+    "declaration": true,
+    "outDir": "dist",
+    "esModuleInterop": true,
+    "baseUrl": "."
+  }
+}
