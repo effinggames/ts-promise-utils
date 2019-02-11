@@ -1,18 +1,18 @@
 {
   "name": "@effinggames/ts-promise-utils",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Promise utility functions written in typescript.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "tsc --noEmit && tslint --project .",
     "build": "tsc",
-    "prepublish": "npm test && npm run build"
+    "prepublishOnly": "npm test && npm run build"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@effinggames/ts-lint-configs": "^6.0.1",
+    "@effinggames/ts-lint-configs": "^6.0.3",
     "@types/node": "^10.12.18",
     "tslint": "^5.12.1",
     "typescript": "^3.2.4"

@@ -4,24 +4,24 @@ export interface PromiseFunction<T> {
 }
 
 /**
- * Default error handler that logs the error, then returns null.
+ * Default error handler that logs the error, then returns undefined.
  * @param promise The promise to catch errors for.
  * @returns Returns the wrapped promise.
  */
-export function defaultErrorHandler<T>(promise: Promise<T>): Promise<T | null> {
+export function defaultErrorHandler<T>(promise: Promise<T>): Promise<T | undefined> {
   return promise.catch((err) => {
     console.error(err);
 
-    return null;
+    return undefined;
   });
 }
 
 /**
- * Resolves all the promises and filters out any null values.
+ * Resolves all the promises and filters out any empty values.
  * @param promises List of promises to resolve.
- * @returns Returns a promise with the list of non-null values.
+ * @returns Returns a promise with the list of non-empty values.
  */
-export async function resolveAllAndFilterNulls<T>(promises: Promise<T | null | undefined>[]): Promise<T[]> {
+export async function resolveAllAndFilterEmpty<T>(promises: Promise<T | undefined>[]): Promise<T[]> {
   return (await Promise.all(promises)).filter(notEmpty);
 }
 
@@ -30,7 +30,7 @@ export async function resolveAllAndFilterNulls<T>(promises: Promise<T | null | u
  * @param promiseFuncs The promise-returning functions to flatten.
  * @returns Returns a promise function with all the results combined via Promise.all().
  */
-export function combinePromiseFunctions<T>(promiseFuncs: PromiseFunction<T>[]): () => Promise<T[]> {
+export function combinePromiseFunctions<T>(promiseFuncs: PromiseFunction<T>[]): PromiseFunction<T[]> {
   return () => {
     const promises = promiseFuncs.map((promiseFunc) => promiseFunc());
 
